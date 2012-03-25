@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+       Information : 
+        <h:form>
+            <table cellpadding="5" cellspacing="0" border="0">
+                <tr>
+                    <td> <h:outputText value="nom " /></td>
+                    <td><p:inputText id="nom" value="#{user.nom}"/></td>
+                </tr>
+                <tr>
+                    <td><h:outputText value="prénom " /></td>
+                    <td><p:inputText id="prenom" value="#{user.prenom}"/></td>
+                </tr>
+                <tr>
+                    <td><h:outputText value="email " /></td>
+                    <td><p:inputText id="email" value="#{user.email}"/></td>
+                </tr>
+                <tr>
+                    <td><h:outputText value="Mot DE passe " /></td>
+                    <td><p:password id="passwd" value="#{user.motDePasse}" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><p:commandButton value="Inscrire" action="#{login.inscription()}"/></td>
+                </tr>
+            </table>
+           </h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+       Connectez vous : 
+        <h:form>
+            <table cellpadding="5" cellspacing="0" border="0">
+                <tr>
+                    <td><h:outputText value="login " /></td>
+                    <td><p:inputText id="input" value="#{user.nom}"/></td>
+                </tr>
+                <tr>
+                    <td><h:outputText value="Mot DE passe " /></td>
+                    <td><p:password id="sc" value="#{user.motDePasse}" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><p:commandButton value="Se Connecter" action="#{login.login()}"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><a href="inscription.xhtml">Inscription</a></td>
+                </tr>
+            </table>
+        </h:form>
+    </h:body>
+</html>
+

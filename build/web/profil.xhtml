@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+    <link type="text/css" rel="stylesheet" href ="CSS/monCSSaMoi.css" />
+    <h:head>
+        <title>DOSI BOX</title>
+        <h:outputText value="Bienvenu : "/>
+        <h:outputText value="#{user.nom}" />
+    </h:head>
+
+    <h:body>
+        
+            <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="" style="margin-top: 30px" width="950">
+                <tr>
+                    <td>
+                        <table cellpadding="0" cellspacing="0" border="0" width="950">
+                            <tr>
+                                <td style="padding-left: 20px"><h1>DOSI BOX</h1></td>
+                                <td align="right" width="340">
+                                    <h:form> 
+                                    <p:inputText id="firstname" required="true" label="Firstname" value="" style="width: 160px" >  
+                                        <f:validateLength minimum="2" />  
+                                    </p:inputText>  
+                                    <p:spacer width="10"/>
+                                    <p:commandButton value="Rechercher" style="width: 140px" />  
+                                    </h:form>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                   
+                    <td align="right" style="padding-right: 20px;">
+                         <h:form>
+                        <p:button value="Profil" style="width: 100px">  
+                            <f:param name="Profil" value="10" />  
+                        </p:button> 
+                        <p:button value="Amis" style="width: 100px">  
+                            <f:param name="Amis" value="10" />  
+                        </p:button> 
+                             <p:commandButton value="Deconnexion"  action="#{login.deconnexion()}"/>  
+                         </h:form>
+                    </td>
+                </tr>
+                   
+                <tr>
+                    <td height="2" style="padding-right: 10px; padding-left: 10px;"><p:separator id="separator"/> </td>
+                </tr>
+                <tr>
+                    <td style="padding-left: 10px;padding-right: 10px;">
+                        <table cellpadding="0" cellspacing="0" border="0" width="930" style="margin-left: 8px;margin-right: 8px">
+                            <tr>
+                                <td>
+                                    <p:panel header="Compte" style="width: 440px">
+                                        <table>
+                                            <tr>
+                                                <td><h:outputText value="Id Utilisateur : " /></td>
+                                                <td>  <h:outputText value="#{user.id}" /></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td><h:outputText value="Pseudo : " /></td>
+                                                <td>  <h:outputText value="#{user.nom}" /></td>
+                                                <td>changer</td>
+                                            </tr>
+                                            <tr>
+                                                <td><h:outputText value="Mot de Pass : " /></td>
+                                                <td>  <h:outputText value="******" /></td>
+                                                <td>changer</td>
+                                            </tr>
+                                            <tr>
+                                                <td width="60%"><h:outputText value="Email : " /></td>
+                                                <td width="35%">  <h:outputText value="#{user.email}" /></td>
+                                                <td >changer</td>
+                                            </tr>
+                                        </table>
+                                    </p:panel>  
+                                </td>
+                                <td align="right" valign="top">
+                                    <p:panel header="Espace de sauvgarde" style="width: 440px">  
+                                        <table>
+                                            <tr>
+                                                <td align="left"><h:outputText value="Liste des fichiers : " /></td>
+                                                <td></td>
+                                                <td><h:form> <h:commandLink value="voir" action="#{login.lister()}" /></h:form></td>
+                                            </tr>   
+
+                                            <tr>
+                                                <td width="60%"><h:outputText value="Total : " /></td>
+                                                <td width="35%"></td>
+                                                <td >70Mega</td>
+                                            </tr>
+                                        </table>  
+                                    </p:panel> 
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="10">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-left: 20px;padding-right: 20px;">
+                        <p:panel header="Chargement de Fichier" style="width: 920px" > 
+                          
+                            <h:form enctype="multipart/form-data">  
+  
+         <p:fileUpload fileUploadListener="#{fileUploadController.handleFileUpload}"  
+            mode="advanced"   
+            update="messages"  
+            sizeLimit="10000000"   
+            allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>  
+  
+    <p:growl id="messages" showDetail="true"/> 
+    
+   
+</h:form> 
+                        </p:panel> 
+                    </td>
+                </tr>
+            </table>
+    </h:body>
+</html>
